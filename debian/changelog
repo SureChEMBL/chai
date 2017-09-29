@@ -1,0 +1,9 @@
+node-chai (3.5.0+dfsg-1) unstable; urgency=low
+
+  [ Sruthi Chandran ]
+  * Initial release (Closes: #843266)
+
+  [ Shanavas M ]
+  * Fix node-type-detect 4.0 compatibility with port-to-type-detect-4.0.patch
+
+ -- Pirate Praveen <praveen@debian.org>  Sat, 05 Nov 2016 22:17:19 +0530

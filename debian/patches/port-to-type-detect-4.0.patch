@@ -1,0 +1,35 @@
+commit d3434bb5e649d1581b53cf3ce7242b0a8ceae1d4
+Author: Shanavas M <shanavas@disroot.org>
+Date:   Fri Nov 4 13:35:31 2016 +0000
+
+    Use type-detect@1.0.0 like object type names
+
+diff --git a/lib/chai/utils/expectTypes.js b/lib/chai/utils/expectTypes.js
+index 4dd5b29..eec10b3 100644
+--- a/lib/chai/utils/expectTypes.js
++++ b/lib/chai/utils/expectTypes.js
+@@ -34,7 +34,7 @@ module.exports = function (obj, types) {
+     return or + art + ' ' + t;
+   }).join(', ');
+ 
+-  if (!types.some(function (expected) { return type(obj) === expected; })) {
++  if (!types.some(function (expected) { return type(obj).toLowerCase() === expected; })) {
+     throw new AssertionError(
+       'object tested must be ' + str + ', but ' + type(obj) + ' given'
+     );
+diff --git a/lib/chai/utils/index.js b/lib/chai/utils/index.js
+index 3f9bf6e..be87fb7 100644
+--- a/lib/chai/utils/index.js
++++ b/lib/chai/utils/index.js
+@@ -20,7 +20,10 @@ exports.test = require('./test');
+  * type utility
+  */
+ 
+-exports.type = require('type-detect');
++var type = require('type-detect');
++exports.type = function (obj) {
++  return type(obj).toLowerCase();
++};
+ 
+ /*!
+  * expectTypes utility

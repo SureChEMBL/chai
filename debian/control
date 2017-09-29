@@ -1,0 +1,34 @@
+Source: node-chai
+Section: web
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Sruthi Chandran <srud@disroot.org>
+ , Pirate Praveen <praveen@debian.org>
+Build-Depends:
+ debhelper (>= 9)
+ , dh-buildinfo
+ , nodejs
+ , mocha
+ , node-type-detect (>= 1.0.0)
+ , node-assertion-error (>= 1.0.1)
+ , node-deep-eql (>= 2.0~)
+Standards-Version: 3.9.8
+Homepage: http://chaijs.com
+Vcs-Git: https://anonscm.debian.org/git/pkg-javascript/node-chai.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-javascript/node-chai.git
+
+Package: chai
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+ , node-type-detect (>= 1.0.0)
+ , node-assertion-error (>= 1.0.1)
+ , node-deep-eql (>= 2.0~)
+Description: BDD/TDD assertion library for node.js and the browser.
+ Chai is a BDD / TDD assertion library for [node](http://nodejs.org) and the
+ browser that can be delightfully paired with any javascript testing framework.
+ .
+ This library is test framework agnostic.
+ .
+ Node.js is an event-based server-side JavaScript engine.

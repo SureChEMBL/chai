@@ -1,0 +1,47 @@
+--- a/Makefile
++++ b/Makefile
+@@ -8,13 +8,13 @@
+ 
+ all: chai.js
+ 
+-chai.js: node_modules lib/*
+-	@printf "==> [Browser :: build]\n"
+-	@./node_modules/.bin/browserify \
+-	 	--bare \
+-		--outfile chai.js \
+-		--standalone chai \
+-		--entry index.js
++chai.js: lib/*
++#	@printf "==> [Browser :: build]\n"
++#	@./node_modules/.bin/browserify \
++#	 	--bare \
++#		--outfile chai.js \
++#		--standalone chai \
++#		--entry index.js
+ 
+ #
+ # Release Task
+@@ -40,18 +40,18 @@
+ # Node Module
+ #
+ 
+-node_modules: package.json
+-	@npm install
++#node_modules: package.json
++#	@npm install
+ 
+ #
+ # Tests
+ #
+ 
+-test: test-node test-phantom
++test: test-node
+ 
+-test-node: node_modules
++test-node:
+ 	@printf "==> [Test :: Node.js]\n"
+-	@NODE_ENV=test ./node_modules/.bin/mocha \
++	@NODE_ENV=test mocha \
+ 		--require ./test/bootstrap \
+ 		--reporter $(REPORTER) \
+ 		$(TESTS)

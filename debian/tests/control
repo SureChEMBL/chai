@@ -1,0 +1,5 @@
+Tests: require
+Depends: node-chai
+
+Test-Command: make test
+Depends: @, @builddeps@
